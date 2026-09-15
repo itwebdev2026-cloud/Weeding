@@ -18,7 +18,9 @@ A modern and elegant wedding invitation website built with Next.js, Tailwind CSS
 ### Special Features
 - **Countdown Timer** - Displays time remaining until the wedding
 - **Photo Booth Frame** - Interactive photo frame feature
-- **Music Player** - Custom playlist for the wedding
+- **Music Player** - Custom playlist for the wecd "c:\Users\DELL\OneDrive\Desktop\last and final\wedding-invitation"
+npm install
+npm run devdding
 - **Gift Registry** - Optional gift registry system
 - **Live Streaming** - Optional live streaming integration
 

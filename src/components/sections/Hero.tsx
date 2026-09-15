@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { weddingConfig } from '../../config/wedding-config';
+import { assetPath } from '../../config/asset-path';
 import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
 interface HeroProps {
@@ -17,9 +18,10 @@ export default function Hero({ guestName }: HeroProps) {
     >
       {/* Background Image with Animated Overlay */}
       <div
-        className="absolute inset-0 bg-[url('/wedding-invitation/images/background/hero-bg.webp')] bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          maskImage: 'url(/wedding-invitation/images/background/hero-bg.webp)',
+          backgroundImage: `url(${assetPath('/images/background/hero-bg.webp')})`,
+          maskImage: `url(${assetPath('/images/background/hero-bg.webp')})`,
           maskPosition: 'center',
           maskRepeat: 'repeat'
         }}
@@ -33,7 +35,7 @@ export default function Hero({ guestName }: HeroProps) {
         
         {/* Floating Flower Patterns */}
         <motion.img
-          src="wedding-invitation/images/pattern/flower-1.webp"
+          src={assetPath('/images/pattern/flower-1.webp')}
           alt=""
           className="absolute top-[10%] left-[5%] w-16 opacity-80 z-20"
           initial={{ y: 0, rotate: 0 }}
@@ -46,7 +48,7 @@ export default function Hero({ guestName }: HeroProps) {
           }}
         />
         <motion.img
-          src="wedding-invitation/images/pattern/flower-2.webp"
+          src={assetPath('/images/pattern/flower-2.webp')}
           alt=""
           className="absolute top-[20%] right-[10%] w-20 opacity-80 z-20"
           initial={{ y: 0, rotate: 0 }}
@@ -60,7 +62,7 @@ export default function Hero({ guestName }: HeroProps) {
           }}
         />
         <motion.img
-          src="wedding-invitation/images/pattern/flower-3.webp"
+          src={assetPath('/images/pattern/flower-3.webp')}
           alt=""
           className="absolute bottom-[15%] left-[15%] w-24 opacity-80 z-20"
           initial={{ y: 0, rotate: 0 }}
@@ -74,7 +76,7 @@ export default function Hero({ guestName }: HeroProps) {
           }}
         />
         <motion.img
-          src="wedding-invitation/images/pattern/flower-1.webp"
+          src={assetPath('/images/pattern/flower-1.webp')}
           alt=""
           className="absolute top-[5%] right-[20%] w-12 opacity-70 z-20"
           initial={{ y: 0, rotate: 0 }}
@@ -88,7 +90,7 @@ export default function Hero({ guestName }: HeroProps) {
           }}
         />
         <motion.img
-          src="wedding-invitation/images/pattern/flower-2.webp"
+          src={assetPath('/images/pattern/flower-2.webp')}
           alt=""
           className="absolute bottom-[5%] right-[5%] w-16 opacity-70 z-20"
           initial={{ y: 0, rotate: 0 }}
@@ -114,7 +116,7 @@ export default function Hero({ guestName }: HeroProps) {
           {/* Creative Decorative Elements */}
           <div className="absolute -bottom-8 -right-8 w-20 opacity-70 animate-float-slow">
             <img
-              src="wedding-invitation/images/pattern/flower-2.webp"
+              src={assetPath('/images/pattern/flower-2.webp')}
               alt=""
               className="w-full h-full"
             />
@@ -185,7 +187,7 @@ export default function Hero({ guestName }: HeroProps) {
             transition={{ delay: 1.1 }}
             className="text-white/90 text-lg mt-4"
           >
-            {new Date(weddingConfig.event.akad.date).toLocaleDateString('id-ID', {
+            {new Date(weddingConfig.event.akad.date).toLocaleDateString('en-US', {
               day: 'numeric',
               month: 'long',
               year: 'numeric'

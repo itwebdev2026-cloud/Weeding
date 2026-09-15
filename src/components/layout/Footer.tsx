@@ -16,13 +16,13 @@ export default function Footer() {
             {weddingConfig.couple.bride.name} & {weddingConfig.couple.groom.name}
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Ungkapan terima kasih yang tulus dari kami apabila Bapak/Ibu/Sdr/i berkenan hadir dan memberikan do'a restu kepada kami.
+            With love and joy, we invite you to celebrate with us.
           </p>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Jazakumullah Khairan Katsira Wassalamu'alaikum Warahmatullahi Wabarakatuh.
+            {weddingConfig.officiant.role}: {weddingConfig.officiant.name}
           </p>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Kami yang berbahagia Keluarga (Nama Mempelai Wanita) Keluarga (Nama Mempelai Pria)
+            {weddingConfig.officiant.church}
           </p>
           <div className="text-white/60 text-sm">
             <p>Made with ❤️</p>

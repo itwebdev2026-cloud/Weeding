@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { weddingConfig } from '../../config/wedding-config';
-import { Instagram, Facebook, Twitter } from '../shared/SocialIcons';
 import { activeTheme } from '../../config/theme-config';
 import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
@@ -120,17 +119,9 @@ export default function CoupleProfile() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           {/* <h2 className="text-3xl font-serif mb-4">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2> */}
-          <div className="relative w-64 h-32 mx-auto mb-4">
-            <Image
-              src="wedding-invitation/images/background/bismillah.png"
-              alt="Bismillah"
-              fill
-              className="object-contain"
-            />
-          </div>
           <div className="relative bg-black/20 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-            <p className="text-white text-lg font-medium leading-relaxed">In the Name of Allah, the Most Beneficent, the Most Merciful</p>
-            <p className="mt-4 text-white/90 leading-relaxed">Dengan memohon rahmat dan ridho-Mu Ya Allah, izinkan kami mengundang Bapak/Ibu/Saudara untuk menghadiri hari bahagia pernikahan kami.</p>
+            <p className="text-white text-lg font-medium leading-relaxed">Together with our families</p>
+            <p className="mt-4 text-white/90 leading-relaxed">We invite you to celebrate our wedding day with us.</p>
           </div>
         </div>
 
@@ -151,17 +142,6 @@ export default function CoupleProfile() {
             <h3 className="text-3xl font-serif mb-4 mt-10">{weddingConfig.couple.bride.name}</h3>
             <p className="text-gray-600 mb-4">{weddingConfig.couple.bride.parents}</p>
             <p className="text-gray-500 mb-4">{weddingConfig.couple.bride.about}</p>
-            <div className="flex justify-center gap-4">
-              {weddingConfig.couple.bride.socialMedia?.instagram && (
-                <Instagram url={weddingConfig.couple.bride.socialMedia.instagram} />
-              )}
-              {weddingConfig.couple.bride.socialMedia?.facebook && (
-                <Facebook url={weddingConfig.couple.bride.socialMedia.facebook} />
-              )}
-              {weddingConfig.couple.bride.socialMedia?.twitter && (
-                <Twitter url={weddingConfig.couple.bride.socialMedia.twitter} />
-              )}
-            </div>
           </motion.div>
 
           <motion.div 
@@ -180,17 +160,6 @@ export default function CoupleProfile() {
             <h3 className="text-3xl font-serif mb-4 mt-10">{weddingConfig.couple.groom.name}</h3>
             <p className="text-gray-600 mb-4">{weddingConfig.couple.groom.parents}</p>
             <p className="text-gray-500 mb-4">{weddingConfig.couple.groom.about}</p>
-            <div className="flex justify-center gap-4">
-              {weddingConfig.couple.groom.socialMedia.instagram && (
-                <Instagram url={weddingConfig.couple.groom.socialMedia.instagram} />
-              )}
-              {weddingConfig.couple.groom.socialMedia.facebook && (
-                <Facebook url={weddingConfig.couple.groom.socialMedia.facebook} />
-              )}
-              {weddingConfig.couple.groom.socialMedia.twitter && (
-                <Twitter url={weddingConfig.couple.groom.socialMedia.twitter} />
-              )}
-            </div>
           </motion.div>
         </div>
       </div>

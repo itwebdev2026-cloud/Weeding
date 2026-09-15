@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/wedding-invitation',
-  assetPrefix: '/wedding-invitation/',
+  basePath: process.env.NODE_ENV === 'production' ? '/wedding-invitation' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/wedding-invitation/' : '',
   experimental: {
     disableOptimizedLoading: true,
   }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { weddingConfig } from '../../config/wedding-config';
 import { activeTheme } from '../../config/theme-config';
+import { assetPath } from '../../config/asset-path';
 import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
 interface TimeLeft {
@@ -60,7 +61,7 @@ export default function CountdownTimer() {
       viewport={viewportSettings}
     >
       <div className="absolute inset-0 opacity-10" style={{ 
-        backgroundImage: 'url("wedding-invitation/images/pattern/subtle-pattern.webp")',
+        backgroundImage: `url("${assetPath('/images/pattern/subtle-pattern.webp')}")`,
         backgroundRepeat: 'repeat' 
       }} />
       
