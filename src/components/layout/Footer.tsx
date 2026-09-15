@@ -26,7 +26,9 @@ export default function Footer() {
           </p>
           <div className="text-white/60 text-sm">
             <p>Made with ❤️</p>
-            <p className="mt-2">© {new Date().getFullYear()} All rights reserved</p>
+            <p className="mt-2 animate-heartbeat" aria-label="Anar with love">
+              ♥ Anar ♥
+            </p>
           </div>
         </motion.div>
       </div>

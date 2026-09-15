@@ -30,7 +30,14 @@ export default function MusicPlayer({ isPlaying }: MusicPlayerProps) {
   }, [playing, trackIndex]);
 
   useEffect(() => {
-    const startMusic = () => setPlaying(true);
+    const startMusic = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      audio.play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false));
+    };
     window.addEventListener('pointerdown', startMusic, { once: true });
     window.addEventListener('keydown', startMusic, { once: true });
 
@@ -41,22 +48,12 @@ export default function MusicPlayer({ isPlaying }: MusicPlayerProps) {
   }, []);
 
   return (
-    <div className="fixed bottom-8 left-8 z-40">
-      <audio
-        ref={audioRef}
-        src={tracks[trackIndex]}
-        autoPlay
-        onEnded={() => setTrackIndex((current) => (current + 1) % tracks.length)}
-        preload="auto"
-      />
-      <button
-        type="button"
-        onClick={() => setPlaying((current) => !current)}
-        aria-label={playing ? 'Pause music' : 'Play music'}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg backdrop-blur-sm transition hover:bg-white"
-      >
-        {playing ? '||' : '>'}
-      </button>
-    </div>
+    <audio
+      ref={audioRef}
+      src={tracks[trackIndex]}
+      autoPlay
+      onEnded={() => setTrackIndex((current) => (current + 1) % tracks.length)}
+      preload="auto"
+    />
   );
 }
