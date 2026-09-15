@@ -39,10 +39,12 @@ export default function MusicPlayer({ isPlaying }: MusicPlayerProps) {
         .catch(() => setPlaying(false));
     };
     window.addEventListener('pointerdown', startMusic, { once: true });
+    window.addEventListener('touchstart', startMusic, { once: true, passive: true });
     window.addEventListener('keydown', startMusic, { once: true });
 
     return () => {
       window.removeEventListener('pointerdown', startMusic);
+      window.removeEventListener('touchstart', startMusic);
       window.removeEventListener('keydown', startMusic);
     };
   }, []);
@@ -52,6 +54,7 @@ export default function MusicPlayer({ isPlaying }: MusicPlayerProps) {
       ref={audioRef}
       src={tracks[trackIndex]}
       autoPlay
+      playsInline
       onEnded={() => setTrackIndex((current) => (current + 1) % tracks.length)}
       preload="auto"
     />
