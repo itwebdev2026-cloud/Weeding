@@ -34,18 +34,26 @@ export default function MusicPlayer({ isPlaying }: MusicPlayerProps) {
       const audio = audioRef.current;
       if (!audio) return;
 
-      audio.play()
+      void audio.play()
         .then(() => setPlaying(true))
         .catch(() => setPlaying(false));
     };
-    window.addEventListener('pointerdown', startMusic, { once: true });
-    window.addEventListener('touchstart', startMusic, { once: true, passive: true });
-    window.addEventListener('keydown', startMusic, { once: true });
+    const captureOptions = { capture: true };
+    const touchOptions = { capture: true, passive: true };
+    window.addEventListener('pointerdown', startMusic, captureOptions);
+    window.addEventListener('pointerup', startMusic, captureOptions);
+    window.addEventListener('touchstart', startMusic, touchOptions);
+    window.addEventListener('touchend', startMusic, touchOptions);
+    window.addEventListener('click', startMusic, captureOptions);
+    window.addEventListener('keydown', startMusic, captureOptions);
 
     return () => {
-      window.removeEventListener('pointerdown', startMusic);
-      window.removeEventListener('touchstart', startMusic);
-      window.removeEventListener('keydown', startMusic);
+      window.removeEventListener('pointerdown', startMusic, captureOptions);
+      window.removeEventListener('pointerup', startMusic, captureOptions);
+      window.removeEventListener('touchstart', startMusic, touchOptions);
+      window.removeEventListener('touchend', startMusic, touchOptions);
+      window.removeEventListener('click', startMusic, captureOptions);
+      window.removeEventListener('keydown', startMusic, captureOptions);
     };
   }, []);
 
